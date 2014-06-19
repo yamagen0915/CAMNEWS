@@ -43,7 +43,10 @@ $(function () {
 
 		var article_item_html = micro_templating(
 			"selected_article_item_template", 
-			{ title: manager.get_article(article_id).title }
+			{ 
+				title: manager.get_article(article_id).title, 
+				link:  manager.get_article(article_id).link,
+			}
 		);
 
 		$(".selected-articles").eq(genre_id).append(article_item_html);
