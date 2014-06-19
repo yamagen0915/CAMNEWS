@@ -1,0 +1,1 @@
+a:3:{s:3:"url";s:49:"http://d.hatena.ne.jp/y_sequi/20140608/1402197896";s:8:"feed_url";s:33:"http://d.hatena.ne.jp/y_sequi/rss";s:5:"build";s:14:"20121030175911";}

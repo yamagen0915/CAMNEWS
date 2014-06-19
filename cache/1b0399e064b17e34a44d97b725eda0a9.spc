@@ -1,0 +1,1 @@
+a:3:{s:3:"url";s:54:"http://www.itmedia.co.jp/news/subtop/bursts/index.html";s:8:"feed_url";s:48:"http://rss.itmedia.co.jp/rss/1.0/news_bursts.xml";s:5:"build";s:14:"20121030175911";}

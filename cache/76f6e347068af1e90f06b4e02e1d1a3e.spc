@@ -1,0 +1,1 @@
+a:3:{s:3:"url";s:27:"http://www.exchangewire.jp/";s:8:"feed_url";s:32:"http://www.exchangewire.jp/feed/";s:5:"build";s:14:"20121030175911";}
