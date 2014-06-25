@@ -12,20 +12,8 @@ $(function () {
 
 	$(document).ready(function(){
 
-		$("#ask-name-dialog").dialog({
-			minWidth: 400,
-			autoOpen: false,
-			draggable: false,
-			resizable: false,
-			title: "ようこそ",
-			closeOnEscape: false,
-			modal: true,
-			show: "clip",
-			hide: "clip",
-			open:function(event, ui){ $(".ui-dialog-titlebar-close").hide();}
-		});
-
-		show_regist_name();
+		var user_name = localStorage.getItem("user-name") || "名前を登録する";
+		$("#user-name").html(user_name);
 
 		$.get("./articles.php", function (response) {
 			$(".loader").remove();	
@@ -39,7 +27,7 @@ $(function () {
 		var genre_id 		= $(this).find("option:selected").index() - 1;
 		var article_id 	= $(this).parents(".article-item").index();
 		
-		manager.selected_article(genre_id, article_id);
+		manager.select(genre_id, article_id);
 
 		var article_item_html = micro_templating(
 			"selected_article_item_template", 
@@ -55,18 +43,21 @@ $(function () {
 
 	$(document).on("click", ".delete-btn", function() {
 
-		var genre_id 			 = $(this).parents(".selected-articles").index() - 1;
+		var genre_id 			 = $(this).parents(".selected-item").index();
 		var selected_index = $(this).parents(".selected-title").index();
 		
+		console.log("index : " + selected_index);
+		console.log("genre : " + genre_id);
+
 		// 記事の登録を解除し、表示の更新を行う
-		manager.deselect_by_index(genre_id, selected_index);
+		manager.deselect(genre_id, selected_index);
 		$(this).parents(".selected-title").remove();
 		
 	});
 
 	$(document).on("click", ".finish-btn", function() {
 
-		var selected_articles = manager.get_all_selected_articles();
+		var selected_articles = manager.get_selected_articles();
 		
 		var mail_body = micro_templating(
 			"mail_format_template", 
@@ -138,10 +129,20 @@ $(function () {
 		return null;
 	};
 
-	function show_regist_name () {
-		var user_name = localStorage.getItem("user-name") || "名前を登録する";
-		$("#user-name").html(user_name);
-	}
+	function init_dialog () {
+		$("#ask-name-dialog").dialog({
+			minWidth: 400,
+			autoOpen: false,
+			draggable: false,
+			resizable: false,
+			title: "ようこそ",
+			closeOnEscape: false,
+			modal: true,
+			show: "clip",
+			hide: "clip",
+			open:function(event, ui){ $(".ui-dialog-titlebar-close").hide();}
+		});
+	};
 	
 });
 
