@@ -23,7 +23,6 @@ $rss->set_feed_url(array(
   "http://www.exchangewire.jp/",
 ));
 $rss->enable_order_by_date(true);
-$rss->force_feed(true);
 $rss->init();
 
 $articles = array();
