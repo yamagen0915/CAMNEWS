@@ -29,7 +29,11 @@ for ($past=1; $past<=$past_day_num; $past++) {
 	$episode["episode_number"]++;
 }
 
-write_episode_file($filename, json_encode($episode));
+$json = json_encode($episode);
+write_episode_file($filename, $json);
+
+echo $json;
+
 
 function read_episode_file ($filename) {
 	$handle		= fopen($filename, "r");
