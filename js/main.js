@@ -12,6 +12,13 @@ $(function () {
 
 	$(document).ready(function(){
 
+		init_dialog();
+
+		$.get("./episode.php", function(response){
+			var json = JSON.parse(response);	
+			$("#episode-number").html(json.episode_number);
+		});
+
 		var user_name = localStorage.getItem("user-name") || "名前を登録する";
 		$("#user-name").html(user_name);
 
@@ -63,6 +70,7 @@ $(function () {
 			"mail_format_template", 
 			{ 
 				user_name: localStorage.getItem("user-name"),
+				episode_number : $("#episode-number").html(),
 				articles: selected_articles
 			}
 		);
@@ -83,7 +91,7 @@ $(function () {
 		});
 	});
 
-	$(document).on('click', '#ok-btn', function() {
+	$(document).on('click', '#ask-name-ok', function() {
 
 		var user_name = $("#user-name-input").val();
 
@@ -100,6 +108,23 @@ $(function () {
 
 	});
 
+	$(document).on("click", "#edit-episode-ok", function(){
+		var episode_number = $("#episode-number-input").val();
+		// 変更がなければ何もしない
+		if ($("#episode-number").html() == episode_number) {
+			$("#edit-episode-dialog").dialog("close");
+			return;
+		}
+
+		$.get(
+			"./episode.php",
+			{ episode_number : episode_number },
+			function (response) {
+				$("#episode-number").html(episode_number);
+				$("#edit-episode-dialog").dialog("close");
+			});
+	});
+
 	$(document).on('click', '.ui-widget-overlay', function(){
 		$("#mail-format-dialog").dialog("close");
   });
@@ -108,6 +133,12 @@ $(function () {
   	var user_name = $("#user-name").html();
   	$("#user-name-input").val(user_name);
 		$("#ask-name-dialog").dialog("open");
+	});
+
+	$(document).on('click', "#episode", function(){
+		var episode_number = $("#episode-number").html();
+		$("#episode-number-input").val(episode_number);
+		$("#edit-episode-dialog").dialog("open");
 	});
 
 	function append_articles (article_obj) {
@@ -137,6 +168,18 @@ $(function () {
 			resizable: false,
 			title: "ようこそ",
 			closeOnEscape: false,
+			modal: true,
+			show: "clip",
+			hide: "clip",
+			open:function(event, ui){ $(".ui-dialog-titlebar-close").hide();}
+		});
+		$("#edit-episode-dialog").dialog({
+			minWidth: 400,
+			autoOpen: false,
+			draggable: false,
+			resizable: false,
+			title: "EPISODE",
+			closeOnEscape: true,
 			modal: true,
 			show: "clip",
 			hide: "clip",

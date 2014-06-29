@@ -9,6 +9,7 @@ if (isset($_GET["episode_number"])) {
 	$episode["update_at"] 		 = $today->format("Y-m-d");
 	$episode["episode_number"] = $_GET["episode_number"];
 	write_episode_file($filename, json_encode($episode));
+	echo json_encode(array("status" => "Success"));
 	exit;
 }
 

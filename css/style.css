@@ -51,20 +51,22 @@ body {
 
 .header {
   width: 100%;
+  color: #7f8c8d;
   text-align: right;
   padding: 0 5px 5px 0;
   border-bottom: 1px solid #DFDFDF;
 }
 
 .header .icon-user {
-  color: #7f8c8d;
   cursor: pointer;
 }
 
 .header #user-name {
   margin-left: 5px;
-  color: #7f8c8d;
   cursor: pointer;
+}
+
+.header #episode {
 }
 
 .header #user-name:hover, .icon-user:hover {
@@ -248,14 +250,29 @@ body {
   width: 90%;
 }
 
-#ask-name-dialog #ok-btn {
+#edit-episode-dialog {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+} 
+
+#edit-episode-dialog label {
+  margin: 5px 0px;
+}
+
+#edit-episode-dialog input[type="text"] {
+  width: 90%;
+}
+
+.ok-btn {
   color: #FFF;
+	text-align: center;
   background-color: #2ecc71;
   padding: 12px;
   margin: 1em 5px 5px;
 }
 
-#ask-name-dialog #ok-btn:hover {
+.ok-btn:hover {
   cursor: pointer;
 	background-color: #27ae60;
 }

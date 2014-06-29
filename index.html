@@ -44,6 +44,7 @@
 
 	<div class="content pure-u-1 pure-u-md-3-4">
 		<div class="header">
+			<span id="episode">EPISODE : <label id="episode-number"></label></span> /
 			<i class="fa fa-user icon-user"><label id="user-name"></label></i>
 		</div>
 		<div class="loader">
@@ -72,7 +73,15 @@ CAMNewsの結果を表示するダイアログ
 		<p>メール本文に使う名前を入力してください。<br>例)システムGの山元</p>
 		<input type="text" id="user-name-input" placeholder="例)システムGの山元">
 	</div>
-	<div id="ok-btn">OK</div>
+	<div id="ask-name-ok" class="ok-btn">OK</div>
+</div>
+
+<div id="edit-episode-dialog" style="display:none;">
+	<div class="pure-form" >
+		<p>EPISODEの番号入力してください</p>
+		<input type="text" id="episode-number-input">
+		<div id="edit-episode-ok" class="ok-btn">OK</div>
+	</div>
 </div>
 
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -126,7 +135,7 @@ CAMNewsの結果を表示するダイアログ
 <script type="text/html" id="mail_format_template">
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br />
 <br />
-◆◇◆　☆CAmobile NEWS☆　◆◇◆　　★EPISODE:　<%= new Date().toMailDateFormat() %><br />
+◆◇◆　☆CAmobile NEWS☆　◆◇◆　　★EPISODE:<%= episode_number %> <%= new Date().toMailDateFormat() %><br />
 <br />
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br />
 <br />
@@ -161,11 +170,3 @@ CAMNewsの結果を表示するダイアログ
 
 </body>
 </html>
-
-
-
-
-
-
-
-
