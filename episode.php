@@ -15,13 +15,13 @@ if (isset($_GET["episode_number"])) {
 
 $episode = read_episode_file ($filename);
 
-$today 					= new DateTime();
+$today 					= new DateTime("2014-06-30");
 $last_update_at = new DateTime($episode["update_at"]);
 $past_day_num 	= past_day($today, $last_update_at);
 
 $episode["update_at"] = $today->format("Y-m-d");
 
-for ($past=1; $past<=$past_day_num; $past++) {
+for ($past=0; $past<$past_day_num; $past++) {
 	// 土日は飛ばす
 	$past_day  = $today->modify("-".$past." day");
 	$past_week = intval($past_day->format("w"));

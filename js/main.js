@@ -126,7 +126,8 @@ $(function () {
 	});
 
 	$(document).on('click', '.ui-widget-overlay', function(){
-		$("#mail-format-dialog").dialog("close");
+		if (is_dialog_shown("#mail-format-dialog")) $("#mail-format-dialog").dialog("close");
+		if (is_dialog_shown("#edit-episode-dialog")) $("#edit-episode-dialog").dialog("close");
   });
 
   $(document).on('click', '.icon-user', function() {
@@ -159,6 +160,10 @@ $(function () {
 		if (pre_date != current_date) return "Yesterday";
 		return null;
 	};
+
+	function is_dialog_shown (name) {
+		return $(name).css("display") != "none";
+	}
 
 	function init_dialog () {
 		$("#ask-name-dialog").dialog({

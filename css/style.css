@@ -260,7 +260,7 @@ body {
   margin: 5px 0px;
 }
 
-#edit-episode-dialog input[type="text"] {
+#edit-episode-dialog input[type="number"] {
   width: 90%;
 }
 
