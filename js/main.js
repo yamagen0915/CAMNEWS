@@ -136,7 +136,7 @@ $(function () {
 		$("#ask-name-dialog").dialog("open");
 	});
 
-	$(document).on('click', "#episode", function(){
+	$(document).on('click', "#edit-episode", function(){
 		var episode_number = $("#episode-number").html();
 		$("#episode-number-input").val(episode_number);
 		$("#edit-episode-dialog").dialog("open");
