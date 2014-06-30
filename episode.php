@@ -15,7 +15,7 @@ if (isset($_GET["episode_number"])) {
 
 $episode = read_episode_file ($filename);
 
-$today 					= new DateTime("2014-06-30");
+$today 					= new DateTime();
 $last_update_at = new DateTime($episode["update_at"]);
 $past_day_num 	= past_day($today, $last_update_at);
 
