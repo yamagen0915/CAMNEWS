@@ -1,6 +1,6 @@
 <?php
 
-require_once("./libs/simplepie_1.3.1.mini.php");
+require_once("./php/autoloader.php");
 require_once("./libs/simple_html_dom.php");
 
 $rss = new SimplePie();
@@ -63,7 +63,7 @@ echo json_encode($articles);
 function check_written_yesterday ($article) {
   $date_format = "Y/m/j";
   $post_at     = strtotime($article->get_date($date_format));
-  $today       = strtotime(date($date_format)) - 24 * 60 * 60 -1;
+  $today       = strtotime('now') - 24 * 60 * 60 -1;
 
   echo $post_at;
   echo $today;
