@@ -1,1 +1,0 @@
-a:3:{s:3:"url";s:92:"http://feedly.com/index.html#subscription%2Ffeed%2Fhttp%3A%2F%2Fwww.advertimes.com%2Ffeed%2F";s:8:"feed_url";s:28:"http://blog.feedly.com/feed/";s:5:"build";s:14:"20121030175911";}

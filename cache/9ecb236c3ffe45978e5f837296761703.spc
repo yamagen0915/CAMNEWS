@@ -1,1 +1,0 @@
-a:3:{s:3:"url";s:20:"http://markezine.jp/";s:8:"feed_url";s:40:"http://markezine.jp/rss/new/20/index.xml";s:5:"build";s:14:"20121030175911";}

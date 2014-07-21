@@ -1,1 +1,0 @@
-a:3:{s:3:"url";s:25:"http://jp.techcrunch.com/";s:8:"feed_url";s:30:"http://jp.techcrunch.com/feed/";s:5:"build";s:14:"20121030175911";}
