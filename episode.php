@@ -6,9 +6,9 @@ ini_set( 'display_errors', 1 );
 $filename = 'episode.json';
 
 if (isset($_GET["episode_number"])) {
-  $episode = read_episode_file ($filename);
+  $episode = read_episode_file($filename);
 
-  $today = new DateTime(new DateTimeZone('Asia/Tokyo'));
+  $today = new DateTime();
   $episode['update_at']      = $today->format('Y-m-d');
   $episode['episode_number'] = $_GET['episode_number'];
 
