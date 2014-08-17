@@ -31,6 +31,12 @@ $(function () {
       selected_count = 0;
       for (var article_id=0; article_id<articles.length; article_id++) {
 
+        // 前日の記事になったらループから抜ける
+        // 自動広告記事選択機能の対象を当日の記事のみにする
+        if (article_id != 0) {
+          if (articles[article_id - 1].date != articles[article_id].date) break;
+        }
+
         article = articles[article_id];
 
         is_ad_article = check_ad_article(article);
