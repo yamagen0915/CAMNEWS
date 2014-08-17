@@ -4,6 +4,11 @@ var ArticleManager = function (articles) {
 
 (function () {
 
+  ArticleManager.prototype.INDUSTRY      = 0;
+  ArticleManager.prototype.SMART_PHONE   = 1;
+  ArticleManager.prototype.ADVERTISEMENT = 2;
+  ArticleManager.prototype.ENTERTAMENT   = 3;
+
   ArticleManager.prototype.articles = null;
 
   ArticleManager.prototype.selected_articles = [
@@ -12,6 +17,10 @@ var ArticleManager = function (articles) {
 
   ArticleManager.prototype.set_articles         = function (articles) {
     this.articles = articles;
+  };
+
+  ArticleManager.prototype.get_all_artcles      = function () {
+    return this.articles;
   };
 
   ArticleManager.prototype.get_article          = function (article_id) {
