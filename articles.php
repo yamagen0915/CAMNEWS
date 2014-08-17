@@ -65,8 +65,6 @@ function check_written_yesterday ($article) {
   $post_at     = strtotime($article->get_date($date_format));
   $today       = strtotime('now') - 24 * 60 * 60 -1;
 
-  echo $post_at;
-  echo $today;
   return $post_at <= $today;
 }
 
