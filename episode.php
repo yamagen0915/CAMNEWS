@@ -20,11 +20,11 @@ if (isset($_GET["episode_number"])) {
 // エピソード情報の取得
 $episode_info = read_episode_file ($filename);
 
-$past_day       = new DateTime('2014-08-18', new DateTimeZone('Asia/Tokyo'));
+$past_day       = new DateTime();
 $last_update_at = new DateTime($episode_info['update_at'], new DateTimeZone('Asia/Tokyo'));
 $past_day_num   = past_day_count($past_day, $last_update_at);
 
-$episode["update_at"] = $past_day->format('Y-m-d');
+$episode_info["update_at"] = date('Y-m-d');
 
 for ($past=0; $past<$past_day_num; $past++) {
 
