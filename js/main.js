@@ -27,39 +27,6 @@ $(function () {
       var articles = JSON.parse(response);
       manager.set_articles(articles);
       append_articles(articles);
-
-      selected_count = 0;
-      for (var article_id=0; article_id<articles.length; article_id++) {
-
-        // 前日の記事になったらループから抜ける
-        // 自動広告記事選択機能の対象を当日の記事のみにする
-        if (article_id != 0) {
-          if (articles[article_id - 1].date != articles[article_id].date) break;
-        }
-
-        article = articles[article_id];
-
-        is_ad_article = check_ad_article(article);
-        console.log(is_ad_article);
-
-        if (is_ad_article) {
-          manager.select(manager.ADVERTISEMENT, article_id);
-
-          var article_item_html = micro_templating(
-            'selected_article_item_template',
-            {
-              title: article.title,
-              link:  article.link,
-            }
-            );
-
-          $('.selected-articles').eq(manager.ADVERTISEMENT).append(article_item_html);
-
-          selected_count++;
-          if (selected_count >= 2) break;
-        }
-      }
-
     });
 
   });
