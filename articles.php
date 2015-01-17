@@ -24,6 +24,7 @@ $rss->enable_order_by_date(true);
 $rss->init();
 
 $articles = array();
+$feeds = $rss->get_items();
 foreach ($rss->get_items() as $article) {
 
   if (check_written_yesterday($article))
@@ -63,7 +64,7 @@ echo json_encode($articles);
 function check_written_yesterday ($article) {
   $date_format = "Y/m/j";
   $post_at     = strtotime($article->get_date($date_format));
-  $today       = strtotime('now') - 24 * 60 * 60 -1;
+  $today       = strtotime('yesterday') - 1;
 
   return $post_at <= $today;
 }
