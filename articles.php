@@ -19,6 +19,7 @@ $rss->set_feed_url(array(
   "http://wired.jp/",
   "http://kabumatome.doorblog.jp/",
   "http://www.exchangewire.jp/",
+  "http://appllio.com/",
 ));
 $rss->enable_order_by_date(true);
 $rss->init();
