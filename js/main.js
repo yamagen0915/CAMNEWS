@@ -213,37 +213,6 @@ $(function () {
     });
   };
 
-  // Stringを拡張して、指定文字数毎に改行するようにする。
-  String.prototype.embed_new_line = function(num) {
-    num = num || 35;
-
-    var result     = '';
-    var char_count = 0;
-    for (var i = 0; i < this.length; i++) {
-
-      // 全角は1文字分、半角なら0.5文字分としてカウントする。
-      var c				= this.charAt(i);
-      char_count += char_width(c);
-
-      result += c;
-      if (char_count > num) {
-        result += '<br>';
-        char_count = 0;
-      }
-    }
-
-    return result;
-
-    function char_width (c) {
-      if (c.match(/[a-z0-9]/))    return 0.4;
-      if (c.match(/[A-Z]/))       return 0.4;
-      if (c.match(/[”]/))         return 0.4;
-      if (c.match(/[:(){}!?]\s/)) return 0.2;
-      return 1;
-    };
-
-  };
-
   Date.prototype.toMailDateFormat = function () {
     var year  = this.getFullYear();
     var month = this.getMonth() + 1;
