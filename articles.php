@@ -21,6 +21,7 @@ $rss->set_feed_url(array(
   "http://www.exchangewire.jp/",
   "http://appllio.com/",
   "http://appmarketinglabo.net/feed/",
+  "http://www.drwallet.jp/navi"
 ));
 $rss->enable_order_by_date(true);
 $rss->init();
