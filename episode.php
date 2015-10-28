@@ -5,6 +5,7 @@ ini_set( 'display_errors', 1 );
 
 $filename = 'episode.json';
 
+// パラメータにepisode_numberが含まれていたデータを更新して終了
 if (isset($_GET["episode_number"])) {
   $episode = read_episode_file($filename);
 
