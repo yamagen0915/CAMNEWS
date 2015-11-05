@@ -21,11 +21,11 @@ if (isset($_GET["episode_number"])) {
 // エピソード情報の取得
 $episode_info = read_episode_file ($filename);
 
-$past_day        = new DateTime();
-$last_updated_at = new DateTime($episode_info['updated_at'], new DateTimeZone('Asia/Tokyo'));
-$past_day_num    = past_day_count($past_day, $last_updated_at);
+$past_day       = new DateTime();
+$last_update_at = new DateTime($episode_info['update_at'], new DateTimeZone('Asia/Tokyo'));
+$past_day_num   = past_day_count($past_day, $last_update_at);
 
-$episode_info["updated_at"] = date('Y-m-d');
+$episode_info["update_at"] = date('Y-m-d');
 
 for ($past=0; $past<$past_day_num; $past++) {
 
@@ -55,8 +55,8 @@ function write_episode_file ($filename, $json) {
   fclose($handle);
 }
 
-function past_day_count ($today, $last_updated_at) {
-  $past_day = $today->diff($last_updated_at);
+function past_day_count ($today, $last_update_at) {
+  $past_day = $today->diff($last_update_at);
   $diff_day = $past_day->format("%d");
   return intval($diff_day);
 }
